@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Kódok</title>
+  <style>
+    body {
+      font-family: monospace;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #1e1e1e;
+      color: #d4d4d4;
+    }
+    h2 {
+      color: #569cd6;
+      margin-top: 40px;
+    }
+    ol {
+      line-height: 2;
+      padding-left: 24px;
+    }
+    li {
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+
+<h2>1. Feladat – Lista elemzés</h2>
+<ol>
+  <li>def lista_elemzes(lista1, lista2):</li>
+  <li>    kozos = []</li>
+  <li>    csak_elso = []</li>
+  <li>    csak_masodik = []</li>
+  <li></li>
+  <li>    for elem in lista1:</li>
+  <li>        if elem in lista2:</li>
+  <li>            if elem not in kozos:</li>
+  <li>                kozos.append(elem)</li>
+  <li>        else:</li>
+  <li>            if elem not in csak_elso:</li>
+  <li>                csak_elso.append(elem)</li>
+  <li></li>
+  <li>    for elem in lista2:</li>
+  <li>        if elem not in lista1:</li>
+  <li>            if elem not in csak_masodik:</li>
+  <li>                csak_masodik.append(elem)</li>
+  <li></li>
+  <li>    return kozos, csak_elso, csak_masodik</li>
+  <li></li>
+  <li>lista_a = ["mocskos", "egyetem", "Orbán", "Krupmli"]</li>
+  <li>lista_b = ["Energia", "Lámpa", "Putyin", "Informatika"]</li>
+  <li></li>
+  <li>kozos_elemek, elso_lista_elemei, masodik_lista_elemei = lista_elemzes(lista_a, lista_b)</li>
+  <li></li>
+  <li>print("Közös elemek:", kozos_elemek)</li>
+  <li>print("Csak az első listában:", elso_lista_elemei)</li>
+  <li>print("Csak a második listában:", masodik_lista_elemei)</li>
+</ol>
+
+<h2>2. Feladat – Szó előfordulás</h2>
+<ol>
+  <li>def szo_elofordulas(szoveg):</li>
+  <li>    szavak_szama = {}</li>
+  <li></li>
+  <li>    szavak = szoveg.split()</li>
+  <li></li>
+  <li>    for szo in szavak:</li>
+  <li>        if szo in szavak_szama:</li>
+  <li>            szavak_szama[szo] += 1</li>
+  <li>        else:</li>
+  <li>            szavak_szama[szo] = 1</li>
+  <li></li>
+  <li>    return szavak_szama</li>
+  <li></li>
+  <li>mondat = input("Írj be egy tetszőleges mondatot: ")</li>
+  <li></li>
+  <li>mondat_tisztitott = mondat.lower()</li>
+  <li></li>
+  <li>eredmeny = szo_elofordulas(mondat_tisztitott)</li>
+  <li></li>
+  <li>print("\nSzavak előfordulása:")</li>
+  <li>print(eredmeny)</li>
+</ol>
+
+<h2>3. Feladat – Szó hossz elemzés</h2>
+<ol>
+  <li>db = int(input("Hány darab szót akar megadni?"))</li>
+  <li>leghosszabb_szo = 0</li>
+  <li>atlagos_szo = 0</li>
+  <li>hatnalhosszabb_szo = 0</li>
+  <li></li>
+  <li>for i in range(db):</li>
+  <li>    szo = (input(f"{i+1}. szo:"))</li>
+  <li>    hossz = len(szo)</li>
+  <li></li>
+  <li>    if hossz > leghosszabb_szo:</li>
+  <li>        leghosszabb_szo = hossz</li>
+  <li></li>
+  <li>    atlagos_szo += hossz</li>
+  <li></li>
+  <li>    if hossz > 6:</li>
+  <li>        hatnalhosszabb_szo += 1</li>
+  <li></li>
+  <li>atlag = hossz / db</li>
+  <li></li>
+  <li>print("Leghosszabb szó hossza", leghosszabb_szo)</li>
+  <li>print("Átlagos szó", atlag)</li>
+  <li>print("Hatnál hosszabb szó", hatnalhosszabb_szo)</li>
+</ol>
+
+<h2>4. Feladat – Oszthatóság</h2>
+<ol>
+  <li>db = int(input("Hány darab számot akar megadni?"))</li>
+  <li></li>
+  <li>oszthato_3 = 0</li>
+  <li>oszthato_5 = 0</li>
+  <li>oszthato_mindkettovel = 0</li>
+  <li></li>
+  <li>for i in range(db):</li>
+  <li>    szam = int(input(f"{i+1}. szám:"))</li>
+  <li></li>
+  <li>    if szam % 3 == 0:</li>
+  <li>        oszthato_3 += 1</li>
+  <li>    if szam % 5 == 0:</li>
+  <li>        oszthato_5 += 1</li>
+  <li>    if szam % 3 and szam % 5 == 0:</li>
+  <li>        oszthato_mindkettovel += 1</li>
+  <li></li>
+  <li>print("3-al oszthato szamok", oszthato_3)</li>
+  <li>print("5-el oszthato szamok", oszthato_5)</li>
+  <li>print("Mindnkettővel osztható számok", oszthato_mindkettovel)</li>
+</ol>
+
+</body>
+</html>
