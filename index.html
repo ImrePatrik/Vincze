@@ -13,6 +13,12 @@
       background: #1e1e1e;
       color: #d4d4d4;
     }
+    h1 {
+      color: #ce9178;
+      margin-top: 60px;
+      border-bottom: 2px solid #ce9178;
+      padding-bottom: 8px;
+    }
     h2 {
       color: #569cd6;
       margin-top: 40px;
@@ -29,7 +35,84 @@
 </head>
 <body>
 
-<h2>1. Feladat – Lista elemzés</h2>
+<!-- ===== A FELADATSOR ===== -->
+<h1>A Feladatsor</h1>
+
+<h2>1. Feladat – Oszthatóság</h2>
+<div class="kod-blokk">
+  <span class="sor">db = int(input("Hány darab számot akar megadni?"))</span>
+  <span class="sor"></span>
+  <span class="sor">oszthato_3 = 0</span>
+  <span class="sor">oszthato_5 = 0</span>
+  <span class="sor">oszthato_mindkettovel = 0</span>
+  <span class="sor"></span>
+  <span class="sor">for i in range(db):</span>
+  <span class="sor">    szam = int(input(f"{i+1}. szám:"))</span>
+  <span class="sor"></span>
+  <span class="sor">    if szam % 3 == 0:</span>
+  <span class="sor">        oszthato_3 += 1</span>
+  <span class="sor">    if szam % 5 == 0:</span>
+  <span class="sor">        oszthato_5 += 1</span>
+  <span class="sor">    if szam % 3 and szam % 5 == 0:</span>
+  <span class="sor">        oszthato_mindkettovel += 1</span>
+  <span class="sor"></span>
+  <span class="sor">print("3-al oszthato szamok", oszthato_3)</span>
+  <span class="sor">print("5-el oszthato szamok", oszthato_5)</span>
+  <span class="sor">print("Mindnkettővel osztható számok", oszthato_mindkettovel)</span>
+</div>
+
+<h2>2. Feladat – Szó hossz elemzés</h2>
+<div class="kod-blokk">
+  <span class="sor">db = int(input("Hány darab szót akar megadni?"))</span>
+  <span class="sor">leghosszabb_szo = 0</span>
+  <span class="sor">atlagos_szo = 0</span>
+  <span class="sor">hatnalhosszabb_szo = 0</span>
+  <span class="sor"></span>
+  <span class="sor">for i in range(db):</span>
+  <span class="sor">    szo = (input(f"{i+1}. szo:"))</span>
+  <span class="sor">    hossz = len(szo)</span>
+  <span class="sor"></span>
+  <span class="sor">    if hossz > leghosszabb_szo:</span>
+  <span class="sor">        leghosszabb_szo = hossz</span>
+  <span class="sor"></span>
+  <span class="sor">    atlagos_szo += hossz</span>
+  <span class="sor"></span>
+  <span class="sor">    if hossz > 6:</span>
+  <span class="sor">        hatnalhosszabb_szo += 1</span>
+  <span class="sor"></span>
+  <span class="sor">atlag = hossz / db</span>
+  <span class="sor"></span>
+  <span class="sor">print("Leghosszabb szó hossza", leghosszabb_szo)</span>
+  <span class="sor">print("Átlagos szó", atlag)</span>
+  <span class="sor">print("Hatnál hosszabb szó", hatnalhosszabb_szo)</span>
+</div>
+
+<h2>3. Feladat – Szó előfordulás</h2>
+<div class="kod-blokk">
+  <span class="sor">def szo_elofordulas(szoveg):</span>
+  <span class="sor">    szavak_szama = {}</span>
+  <span class="sor"></span>
+  <span class="sor">    szavak = szoveg.split()</span>
+  <span class="sor"></span>
+  <span class="sor">    for szo in szavak:</span>
+  <span class="sor">        if szo in szavak_szama:</span>
+  <span class="sor">            szavak_szama[szo] += 1</span>
+  <span class="sor">        else:</span>
+  <span class="sor">            szavak_szama[szo] = 1</span>
+  <span class="sor"></span>
+  <span class="sor">    return szavak_szama</span>
+  <span class="sor"></span>
+  <span class="sor">mondat = input("Írj be egy tetszőleges mondatot: ")</span>
+  <span class="sor"></span>
+  <span class="sor">mondat_tisztitott = mondat.lower()</span>
+  <span class="sor"></span>
+  <span class="sor">eredmeny = szo_elofordulas(mondat_tisztitott)</span>
+  <span class="sor"></span>
+  <span class="sor">print("\nSzavak előfordulása:")</span>
+  <span class="sor">print(eredmeny)</span>
+</div>
+
+<h2>4. Feladat – Lista elemzés</h2>
 <div class="kod-blokk">
   <span class="sor">def lista_elemzes(lista1, lista2):</span>
   <span class="sor">    kozos = []</span>
@@ -61,78 +144,82 @@
   <span class="sor">print("Csak a második listában:", masodik_lista_elemei)</span>
 </div>
 
-<h2>2. Feladat – Szó előfordulás</h2>
+<!-- ===== B FELADATSOR ===== -->
+<h1>B Feladatsor</h1>
+
+<h2>1. Feladat – Páros/Páratlan szótár</h2>
 <div class="kod-blokk">
-  <span class="sor">def szo_elofordulas(szoveg):</span>
-  <span class="sor">    szavak_szama = {}</span>
+  <span class="sor">eredmeny = (["páros", "páratlan"])</span>
   <span class="sor"></span>
-  <span class="sor">    szavak = szoveg.split()</span>
+  <span class="sor">db = int(input("Hány darab számot szeretnél megadni? "))</span>
   <span class="sor"></span>
-  <span class="sor">    for szo in szavak:</span>
-  <span class="sor">        if szo in szavak_szama:</span>
-  <span class="sor">            szavak_szama[szo] += 1</span>
-  <span class="sor">        else:</span>
-  <span class="sor">            szavak_szama[szo] = 1</span>
+  <span class="sor">for i in range(db):</span>
+  <span class="sor">    szam = int(input(f"Add meg a(z) {i+1}. számot: "))</span>
   <span class="sor"></span>
-  <span class="sor">    return szavak_szama</span>
+  <span class="sor">    if szam % 2 == 0:</span>
+  <span class="sor">        eredmeny("páros").append(szam)</span>
+  <span class="sor">    else:</span>
+  <span class="sor">        eredmeny("páratlan").append(szam)</span>
   <span class="sor"></span>
-  <span class="sor">mondat = input("Írj be egy tetszőleges mondatot: ")</span>
-  <span class="sor"></span>
-  <span class="sor">mondat_tisztitott = mondat.lower()</span>
-  <span class="sor"></span>
-  <span class="sor">eredmeny = szo_elofordulas(mondat_tisztitott)</span>
-  <span class="sor"></span>
-  <span class="sor">print("\nSzavak előfordulása:")</span>
+  <span class="sor">print("Az eredmény szótár:")</span>
   <span class="sor">print(eredmeny)</span>
 </div>
 
-<h2>3. Feladat – Szó hossz elemzés</h2>
+<h2>2. Feladat – Lista összehasonlítás</h2>
 <div class="kod-blokk">
-  <span class="sor">db = int(input("Hány darab szót akar megadni?"))</span>
-  <span class="sor">leghosszabb_szo = 0</span>
-  <span class="sor">atlagos_szo = 0</span>
-  <span class="sor">hatnalhosszabb_szo = 0</span>
+  <span class="sor">def lista_osszehasonlitas(lista1, lista2):</span>
+  <span class="sor">    kozos = 0</span>
+  <span class="sor">    csak_elso = 0</span>
+  <span class="sor">    csak_masodik = 0</span>
   <span class="sor"></span>
-  <span class="sor">for i in range(db):</span>
-  <span class="sor">    szo = (input(f"{i+1}. szo:"))</span>
-  <span class="sor">    hossz = len(szo)</span>
+  <span class="sor">    for elem in lista1:</span>
+  <span class="sor">        if elem in lista2:</span>
+  <span class="sor">            kozos.append(elem)</span>
+  <span class="sor">        else:</span>
+  <span class="sor">            csak_elso.append(elem)</span>
   <span class="sor"></span>
-  <span class="sor">    if hossz > leghosszabb_szo:</span>
-  <span class="sor">        leghosszabb_szo = hossz</span>
+  <span class="sor">    for elem in lista2:</span>
+  <span class="sor">        if elem not in lista1:</span>
+  <span class="sor">            csak_masodik.append(elem)</span>
   <span class="sor"></span>
-  <span class="sor">    atlagos_szo += hossz</span>
+  <span class="sor">    return kozos, csak_elso, csak_masodik</span>
   <span class="sor"></span>
-  <span class="sor">    if hossz > 6:</span>
-  <span class="sor">        hatnalhosszabb_szo += 1</span>
+  <span class="sor">lista1 = [1, 2, 3, 4, 5]</span>
+  <span class="sor">lista2 = [4, 5, 6, 7]</span>
   <span class="sor"></span>
-  <span class="sor">atlag = hossz / db</span>
+  <span class="sor">kozos, csak_elso, csak_masodik = lista_osszehasonlitas(lista1, lista2)</span>
   <span class="sor"></span>
-  <span class="sor">print("Leghosszabb szó hossza", leghosszabb_szo)</span>
-  <span class="sor">print("Átlagos szó", atlag)</span>
-  <span class="sor">print("Hatnál hosszabb szó", hatnalhosszabb_szo)</span>
+  <span class="sor">print("Közös elemek:", kozos)</span>
+  <span class="sor">print("Csak az első listában:", csak_elso)</span>
+  <span class="sor">print("Csak a második listában:", csak_masodik)</span>
 </div>
 
-<h2>4. Feladat – Oszthatóság</h2>
+<h2>3. Feladat – Compress</h2>
 <div class="kod-blokk">
-  <span class="sor">db = int(input("Hány darab számot akar megadni?"))</span>
+  <span class="sor">def compress(lst):</span>
+  <span class="sor">    eredmeny = 0</span>
   <span class="sor"></span>
-  <span class="sor">oszthato_3 = 0</span>
-  <span class="sor">oszthato_5 = 0</span>
-  <span class="sor">oszthato_mindkettovel = 0</span>
+  <span class="sor">    szamlalo = 1</span>
   <span class="sor"></span>
-  <span class="sor">for i in range(db):</span>
-  <span class="sor">    szam = int(input(f"{i+1}. szám:"))</span>
+  <span class="sor">    for i in range(1, len(lst)):</span>
+  <span class="sor">        if lst[i] == lst[i-1]:</span>
+  <span class="sor">            szamlalo += 1</span>
+  <span class="sor">        else:</span>
+  <span class="sor">            eredmeny.append((lst[i-1], szamlalo))</span>
+  <span class="sor">            szamlalo = 1</span>
   <span class="sor"></span>
-  <span class="sor">    if szam % 3 == 0:</span>
-  <span class="sor">        oszthato_3 += 1</span>
-  <span class="sor">    if szam % 5 == 0:</span>
-  <span class="sor">        oszthato_5 += 1</span>
-  <span class="sor">    if szam % 3 and szam % 5 == 0:</span>
-  <span class="sor">        oszthato_mindkettovel += 1</span>
+  <span class="sor">    if len(lst) > 0:</span>
+  <span class="sor">        eredmeny.append((lst[-1], szamlalo))</span>
   <span class="sor"></span>
-  <span class="sor">print("3-al oszthato szamok", oszthato_3)</span>
-  <span class="sor">print("5-el oszthato szamok", oszthato_5)</span>
-  <span class="sor">print("Mindnkettővel osztható számok", oszthato_mindkettovel)</span>
+  <span class="sor">    return eredmeny</span>
+  <span class="sor"></span>
+  <span class="sor">szamok = input("Adj meg számokat szóközzel elválasztva: ")</span>
+  <span class="sor"></span>
+  <span class="sor">lista = [int(x) for x in szamok.split()]</span>
+  <span class="sor"></span>
+  <span class="sor">eredmeny = compress(lista)</span>
+  <span class="sor"></span>
+  <span class="sor">print("Eredmény:", eredmeny)</span>
 </div>
 
 </body>
